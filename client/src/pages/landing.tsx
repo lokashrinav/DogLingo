@@ -59,37 +59,96 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="bg-muted/30 min-h-screen flex items-center pt-16 polka-dots-accent">
         <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="text-center text-foreground">
-            <div className="mb-8">
-              <div className="w-24 h-24 mx-auto bg-secondary/20 rounded-full flex items-center justify-center mb-6 polka-dots-card">
-                <Dog size={48} className="text-secondary" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Main Content */}
+            <div className="text-center lg:text-left text-foreground">
+              <div className="mb-8">
+                <div className="w-24 h-24 mx-auto lg:mx-0 bg-secondary/20 rounded-full flex items-center justify-center mb-6 polka-dots-card">
+                  <Dog size={48} className="text-secondary" />
+                </div>
+                <h1 className="text-5xl lg:text-6xl font-bold mb-6" data-testid="hero-title">
+                  DogLingo
+                </h1>
+                <p className="text-xl lg:text-2xl opacity-90 mb-4">
+                  Master dog training commands through interactive lessons, just like learning a new language
+                </p>
+                <p className="text-lg opacity-80 mb-8">
+                  Join thousands of dog owners using gamified learning to build stronger bonds with their pets
+                </p>
               </div>
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6" data-testid="hero-title">
-                DogLingo
-              </h1>
-              <p className="text-xl lg:text-2xl opacity-90 mb-4 max-w-3xl mx-auto">
-                Master dog training commands through interactive lessons, just like learning a new language
-              </p>
-              <p className="text-lg opacity-80 mb-8 max-w-2xl mx-auto">
-                Join thousands of dog owners using gamified learning to build stronger bonds with their pets
-              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                <button 
+                  onClick={() => window.location.href = '/api/login'}
+                  className="bg-secondary text-secondary-foreground px-8 py-4 rounded-lg font-bold text-lg hover:bg-secondary/90 transition-all transform hover:scale-105"
+                  data-testid="login-button"
+                >
+                  Start Training
+                </button>
+                <button 
+                  className="border-2 border-secondary text-secondary px-8 py-4 rounded-lg font-bold text-lg hover:bg-secondary/10 transition-all"
+                  onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+                  data-testid="learn-more-button"
+                >
+                  Learn More
+                </button>
+              </div>
+
+              {/* Trust badges */}
+              <div className="flex flex-wrap gap-6 justify-center lg:justify-start text-muted-foreground text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                  <span>No credit card required</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-accent rounded-full"></div>
+                  <span>Works with any dog breed</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                  <span>Expert-designed curriculum</span>
+                </div>
+              </div>
             </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <button 
-                onClick={() => window.location.href = '/api/login'}
-                className="bg-secondary text-secondary-foreground px-8 py-4 rounded-lg font-bold text-lg hover:bg-secondary/90 transition-all transform hover:scale-105"
-                data-testid="login-button"
-              >
-                Start Training
-              </button>
-              <button 
-                className="border-2 border-secondary text-secondary px-8 py-4 rounded-lg font-bold text-lg hover:bg-secondary/10 transition-all"
-                onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
-                data-testid="learn-more-button"
-              >
-                Learn More
-              </button>
+
+            {/* Right Column - Visual Elements */}
+            <div className="relative">
+              {/* Feature Preview Cards */}
+              <div className="space-y-4">
+                <div className="bg-card border border-border rounded-lg p-4 polka-dots-card transform rotate-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center polka-dots-subtle">
+                      <Target className="text-secondary" size={16} />
+                    </div>
+                    <span className="font-semibold">Interactive Lessons</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Drag & drop exercises, audio guides</p>
+                </div>
+                
+                <div className="bg-card border border-border rounded-lg p-4 polka-dots-card transform -rotate-1 ml-8">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center polka-dots-subtle">
+                      <Award className="text-accent" size={16} />
+                    </div>
+                    <span className="font-semibold">Achievement System</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Unlock badges, earn XP, build streaks</p>
+                </div>
+                
+                <div className="bg-card border border-border rounded-lg p-4 polka-dots-card transform rotate-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center polka-dots-subtle">
+                      <Users className="text-secondary" size={16} />
+                    </div>
+                    <span className="font-semibold">Progress Tracking</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Monitor learning with detailed analytics</p>
+                </div>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-secondary/10 rounded-full polka-dots-card opacity-60"></div>
+              <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-accent/10 rounded-full polka-dots-card opacity-60"></div>
             </div>
           </div>
         </div>
