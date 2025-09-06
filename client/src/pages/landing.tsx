@@ -117,15 +117,16 @@ export default function Landing() {
               <div className="mb-6">
                 <video 
                   controls
-                  autoPlay
                   muted
-                  loop
                   playsInline
+                  preload="metadata"
                   className="w-full h-80 rounded-lg border border-border polka-dots-card object-cover"
                   poster="/attached_assets/generated_images/Human_learning_to_bark_0f2430ab.png"
+                  onError={(e) => console.error('Video error:', e)}
+                  onLoadStart={() => console.log('Video loading started')}
                 >
                   <source src="/attached_assets/Human_Learns_To_Bark_Online_1757187438871.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
+                  <p>Your browser does not support the video tag. <a href="/attached_assets/Human_Learns_To_Bark_Online_1757187438871.mp4" target="_blank">Download the video</a></p>
                 </video>
               </div>
               
