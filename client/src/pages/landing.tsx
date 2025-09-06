@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dog, Award, Target, Users, Menu, X } from "lucide-react";
 import { useState } from "react";
 import heroImage from "@assets/generated_images/Human_learning_to_bark_0f2430ab.png";
-import heroVideo from "@assets/Human_Learns_To_Bark_Online_1757187438871.mp4";
+import heroVideo from "@assets/Creating_Barking_Animation_From_Image_1757187980304.mp4";
 
 export default function Landing() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
