@@ -3,7 +3,7 @@ import { pgTable, text, varchar, integer, boolean, jsonb, timestamp, index } fro
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-// Session storage table for Replit Auth
+// Session storage table for traditional authentication
 export const sessions = pgTable(
   "sessions",
   {
@@ -14,20 +14,16 @@ export const sessions = pgTable(
   (table) => [index("IDX_session_expire").on(table.expire)],
 );
 
-// User storage table compatible with Replit Auth
+// User storage table for traditional authentication
 export const users = pgTable("users", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  email: varchar("email").unique(),
-  firstName: varchar("first_name"),
-  lastName: varchar("last_name"),
-  profileImageUrl: varchar("profile_image_url"),
-  // App-specific fields
-  username: text("username").unique(),
-  dogName: text("dog_name"),
-  streak: integer("streak").notNull().default(0),
+  username: varchar("username", { length: 50 }).notNull().unique(),
+  email: varchar("email", { length: 100 }).unique(),
+  password: varchar("password", { length: 255 }).notNull(),
+  dogName: varchar("dog_name", { length: 50 }),
   totalXp: integer("total_xp").notNull().default(0),
+  currentStreak: integer("current_streak").notNull().default(0),
   createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 export const lessons = pgTable("lessons", {
@@ -87,7 +83,8 @@ export const userAchievements = pgTable("user_achievements", {
 export const insertUserSchema = createInsertSchema(users).omit({
   id: true,
   createdAt: true,
-  updatedAt: true,
+  totalXp: true,
+  currentStreak: true,
 });
 
 export const insertLessonSchema = createInsertSchema(lessons).omit({
@@ -115,7 +112,6 @@ export const insertUserAchievementSchema = createInsertSchema(userAchievements).
 // Types
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
-export type UpsertUser = typeof users.$inferInsert; // For Replit Auth
 
 export type Lesson = typeof lessons.$inferSelect;
 export type InsertLesson = z.infer<typeof insertLessonSchema>;
