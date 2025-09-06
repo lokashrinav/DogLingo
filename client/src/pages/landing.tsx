@@ -23,7 +23,7 @@ export default function Landing() {
               <a href="#features" className="text-foreground hover:text-secondary transition-colors">Features</a>
               <a href="#how-it-works" className="text-foreground hover:text-secondary transition-colors">How It Works</a>
               <button 
-                onClick={() => window.location.href = '/api/login'}
+                onClick={() => window.location.href = '/auth'}
                 className="bg-secondary text-secondary-foreground px-6 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
                 data-testid="nav-login-button"
               >
@@ -47,7 +47,7 @@ export default function Landing() {
                 <a href="#features" className="block px-3 py-2 text-foreground hover:text-secondary">Features</a>
                 <a href="#how-it-works" className="block px-3 py-2 text-foreground hover:text-secondary">How It Works</a>
                 <button 
-                  onClick={() => window.location.href = '/api/login'}
+                  onClick={() => window.location.href = '/auth'}
                   className="w-full text-left px-3 py-2 bg-secondary text-secondary-foreground rounded-lg font-medium"
                 >
                   Start Training
@@ -81,7 +81,7 @@ export default function Landing() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                 <button 
-                  onClick={() => window.location.href = '/api/login'}
+                  onClick={() => window.location.href = '/auth'}
                   className="bg-secondary text-secondary-foreground px-8 py-4 rounded-lg font-bold text-lg hover:bg-secondary/90 transition-all transform hover:scale-105"
                   data-testid="login-button"
                 >
