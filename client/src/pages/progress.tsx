@@ -105,39 +105,80 @@ export default function Progress() {
                 return (
                   <div 
                     key={lesson.id}
-                    className="flex items-center justify-between p-4 bg-muted/50 rounded-lg polka-dots-card hover:scale-105 transition-all transform"
+                    className="relative overflow-hidden bg-card border border-border rounded-lg polka-dots-card hover:scale-[1.02] transition-all transform duration-300 hover:shadow-lg"
                     data-testid={`lesson-progress-${lesson.id}`}
                   >
-                    <div className="flex items-center space-x-4">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                        isCompleted ? 'bg-primary/20' : 'bg-muted/20'
-                      }`}>
-                        <i className={`${lesson.icon} ${
-                          isCompleted ? 'text-primary' : 'text-muted-foreground'
-                        }`}></i>
-                      </div>
-                      <div>
-                        <h3 className="font-semibold">{lesson.title}</h3>
-                        <p className="text-sm text-muted-foreground">{lesson.description}</p>
-                      </div>
-                    </div>
+                    {/* Status Indicator Bar */}
+                    <div className={`h-1 w-full ${
+                      isCompleted ? 'bg-secondary' : 
+                      lessonProgress ? 'bg-accent' : 'bg-muted/30'
+                    }`} />
                     
-                    <div className="text-right">
-                      {isCompleted ? (
-                        <>
-                          <div className="text-lg font-bold text-primary">{score}%</div>
-                          <div className="text-xs text-green-600">Completed</div>
-                        </>
-                      ) : (
-                        <>
-                          <div className="text-lg font-bold text-muted-foreground">
-                            {lessonProgress ? `${score}%` : 'Not Started'}
+                    <div className="p-6">
+                      <div className="flex items-center justify-between">
+                        {/* Left Side - Icon and Content */}
+                        <div className="flex items-center space-x-4 flex-1">
+                          <div className={`w-14 h-14 rounded-full flex items-center justify-center polka-dots-subtle ${
+                            isCompleted ? 'bg-secondary/20' : 
+                            lessonProgress ? 'bg-accent/20' : 'bg-muted/20'
+                          }`}>
+                            <i className={`${lesson.icon} text-xl ${
+                              isCompleted ? 'text-secondary' : 
+                              lessonProgress ? 'text-accent' : 'text-muted-foreground'
+                            }`}></i>
                           </div>
-                          <div className="text-xs text-muted-foreground">
-                            {lessonProgress ? 'In Progress' : 'Locked'}
+                          
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-bold text-lg mb-1 truncate">{lesson.title}</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">{lesson.description}</p>
+                            
+                            {/* Progress Bar for In-Progress Lessons */}
+                            {lessonProgress && !isCompleted && (
+                              <div className="mt-3">
+                                <div className="flex items-center justify-between text-xs text-muted-foreground mb-1">
+                                  <span>Progress</span>
+                                  <span>{score}%</span>
+                                </div>
+                                <div className="w-full bg-muted/30 rounded-full h-2">
+                                  <div 
+                                    className="bg-accent h-2 rounded-full transition-all duration-500"
+                                    style={{ width: `${score}%` }}
+                                  />
+                                </div>
+                              </div>
+                            )}
                           </div>
-                        </>
-                      )}
+                        </div>
+                        
+                        {/* Right Side - Status and Score */}
+                        <div className="text-right ml-4 flex-shrink-0">
+                          {isCompleted ? (
+                            <div className="bg-secondary/10 px-4 py-3 rounded-lg polka-dots-subtle">
+                              <div className="text-2xl font-bold text-secondary mb-1">{score}%</div>
+                              <div className="text-xs font-medium text-secondary">Completed</div>
+                              <div className="flex items-center justify-center mt-2">
+                                <i className="fas fa-check-circle text-secondary"></i>
+                              </div>
+                            </div>
+                          ) : lessonProgress ? (
+                            <div className="bg-accent/10 px-4 py-3 rounded-lg polka-dots-subtle">
+                              <div className="text-2xl font-bold text-accent mb-1">{score}%</div>
+                              <div className="text-xs font-medium text-accent">In Progress</div>
+                              <div className="flex items-center justify-center mt-2">
+                                <i className="fas fa-play-circle text-accent"></i>
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="bg-muted/20 px-4 py-3 rounded-lg polka-dots-subtle">
+                              <div className="text-2xl font-bold text-muted-foreground mb-1">—</div>
+                              <div className="text-xs font-medium text-muted-foreground">Not Started</div>
+                              <div className="flex items-center justify-center mt-2">
+                                <i className="fas fa-lock text-muted-foreground"></i>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );
