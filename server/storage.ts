@@ -992,6 +992,263 @@ export class DatabaseStorage implements IStorage {
           audioUrl: "/audio/sequences/dog-park-entry.mp3",
           imageUrl: null,
           order: 1,
+        },
+
+        // LESSON 002: Tuesday vs Wednesday Barks - COMEDY EXERCISES!
+        {
+          id: "exercise-002-101",
+          lessonId: "lesson-002",
+          type: "audio",
+          question: "Listen to this Tuesday bark. Can you detect the subtle Tuesday energy?",
+          options: [
+            { id: "tuesday", text: "Definitely Tuesday", description: "Clear weekday vibes" },
+            { id: "wednesday", text: "Sounds like Wednesday", description: "You need more training" },
+            { id: "weekend", text: "That's a weekend bark", description: "Completely wrong!" }
+          ],
+          correctAnswer: "tuesday",
+          explanation: "Correct! Tuesday barks have 14% more existential dread than Wednesday barks. Science!",
+          audioUrl: "/audio/barks/tuesday.mp3",
+          imageUrl: null,
+          order: 1,
+        },
+        {
+          id: "exercise-002-102",
+          lessonId: "lesson-002",
+          type: "audio",
+          question: "🎤 BARK TEST: Bark your best Tuesday bark THREE times! How did it feel?",
+          options: [
+            { id: "tuesday-perfect", text: "Perfectly Tuesday", description: "You captured the essence" },
+            { id: "too-wednesday", text: "Too Wednesday-ish", description: "Try again with less hope" },
+            { id: "thursday", text: "Accidentally Thursday", description: "Way off!" }
+          ],
+          correctAnswer: "tuesday-perfect",
+          explanation: "Excellent! Your Tuesday bark contained the perfect amount of 'only 3 more days till Friday' energy!",
+          audioUrl: "/audio/practice/bark-test.mp3",
+          imageUrl: null,
+          order: 2,
+        },
+        {
+          id: "exercise-002-103",
+          lessonId: "lesson-002",
+          type: "multiple-choice",
+          question: "According to the Canine Calendar Institute, what makes Wednesday barks unique?",
+          options: [
+            { id: "hump", text: "Hump day frequency", description: "Mid-week sonic waves" },
+            { id: "monday", text: "Monday residue", description: "That's Tuesday's trait" },
+            { id: "friday", text: "Pre-Friday excitement", description: "Too early for that" },
+            { id: "same", text: "They're the same", description: "How dare you!" }
+          ],
+          correctAnswer: "hump",
+          explanation: "Yes! Wednesday barks vibrate at exactly 432.5 Hz, the 'hump day frequency' discovered by Dr. Woofington in 2019.",
+          audioUrl: null,
+          imageUrl: null,
+          order: 3,
+        },
+
+        // LESSON 003: Indoor vs Outdoor Barks
+        {
+          id: "exercise-003-001",
+          lessonId: "lesson-003",
+          type: "audio",
+          question: "This is an indoor bark. Notice how it respects the neighbors?",
+          options: [
+            { id: "indoor", text: "Clearly indoor", description: "Apartment-friendly" },
+            { id: "outdoor", text: "That's outdoor", description: "You need ear training" },
+            { id: "basement", text: "Basement bark", description: "Too specific!" }
+          ],
+          correctAnswer: "indoor",
+          explanation: "Correct! Indoor barks use 'inside voice' technology - 23% more emotional resonance but 40% less volume!",
+          audioUrl: "/audio/barks/indoor.mp3",
+          imageUrl: null,
+          order: 1,
+        },
+        {
+          id: "exercise-003-002",
+          lessonId: "lesson-003",
+          type: "audio",
+          question: "🎤 PRACTICE TIME: Bark FIVE times alternating indoor and outdoor styles!",
+          options: [
+            { id: "mastered", text: "Mastered both!", description: "Environmental awareness achieved" },
+            { id: "confused", text: "Mixed them up", description: "Keep practicing" },
+            { id: "neighbors", text: "Neighbors complained", description: "Too authentic!" }
+          ],
+          correctAnswer: "mastered",
+          explanation: "Amazing! You've achieved Environmental Bark Awareness™. Your indoor barks were respectful yet assertive!",
+          audioUrl: "/audio/practice/alternating.mp3",
+          imageUrl: null,
+          order: 2,
+        },
+
+        // LESSON 004: Before vs After Lunch Barks
+        {
+          id: "exercise-004-001",
+          lessonId: "lesson-004",
+          type: "audio",
+          question: "This pre-lunch bark contains hunger frequencies. Can you hear them?",
+          options: [
+            { id: "hungry", text: "Definitely hungry", description: "Empty stomach acoustics" },
+            { id: "full", text: "Sounds satisfied", description: "That's post-meal!" },
+            { id: "snack", text: "Just had a snack", description: "Amateur mistake" }
+          ],
+          correctAnswer: "hungry",
+          explanation: "Perfect! Pre-meal barks contain 'quantum hunger particles' that vibrate at the frequency of an empty bowl.",
+          audioUrl: "/audio/barks/hungry.mp3",
+          imageUrl: null,
+          order: 1,
+        },
+        {
+          id: "exercise-004-002",
+          lessonId: "lesson-004",
+          type: "audio",
+          question: "🎤 YOUR TURN: Bark like you haven't eaten in 3 hours! Make it convincing!",
+          options: [
+            { id: "starving", text: "Truly starving", description: "Oscar-worthy performance" },
+            { id: "peckish", text: "Just peckish", description: "Need more drama" },
+            { id: "full", text: "Sounded full", description: "Method acting fail" }
+          ],
+          correctAnswer: "starving",
+          explanation: "WOW! That bark contained so much hunger, nearby restaurants started preparing food! Professional level!",
+          audioUrl: "/audio/practice/hungry-bark.mp3",
+          imageUrl: null,
+          order: 2,
+        },
+
+        // LESSON 005: Left Paw vs Right Paw Barks
+        {
+          id: "exercise-005-001",
+          lessonId: "lesson-005",
+          type: "multiple-choice",
+          question: "Which paw should you stand on for maximum emotional impact?",
+          options: [
+            { id: "left", text: "Left paw", description: "The emotional side" },
+            { id: "right", text: "Right paw", description: "The logical side" },
+            { id: "both", text: "Both paws", description: "That's just standing!" },
+            { id: "alternate", text: "Alternate rapidly", description: "That's dancing!" }
+          ],
+          correctAnswer: "left",
+          explanation: "Yes! The left paw connects to the heart chakra, adding 31% more feelings to your bark!",
+          audioUrl: null,
+          imageUrl: null,
+          order: 1,
+        },
+        {
+          id: "exercise-005-002",
+          lessonId: "lesson-005",
+          type: "audio",
+          question: "🎤 ADVANCED TEST: Bark while hopping on your left foot! Do it 3 times!",
+          options: [
+            { id: "balanced", text: "Perfect balance", description: "Athletic barking!" },
+            { id: "fell", text: "Lost balance", description: "Keep practicing" },
+            { id: "dizzy", text: "Got dizzy", description: "Too much spinning" }
+          ],
+          correctAnswer: "balanced",
+          explanation: "Incredible! You've mastered Kinetic Barking™. Your left-footed barks had perfect emotional resonance!",
+          audioUrl: "/audio/practice/hopping-bark.mp3",
+          imageUrl: null,
+          order: 2,
+        },
+
+        // LESSON 101: Puppy Yips & Squeaks
+        {
+          id: "exercise-101-001",
+          lessonId: "lesson-101",
+          type: "audio",
+          question: "Listen to this professional puppy yip. It's 8 weeks old exactly.",
+          options: [
+            { id: "8weeks", text: "8 weeks old", description: "Precise age detection" },
+            { id: "6weeks", text: "6 weeks old", description: "Too young!" },
+            { id: "adult", text: "Adult pretending", description: "Caught the faker!" }
+          ],
+          correctAnswer: "8weeks",
+          explanation: "Correct! 8-week-old yips have that perfect blend of innocence and mischief, scientifically proven!",
+          audioUrl: "/audio/barks/puppy-yip.mp3",
+          imageUrl: null,
+          order: 1,
+        },
+        {
+          id: "exercise-101-002",
+          lessonId: "lesson-101",
+          type: "audio",
+          question: "🎤 CUTENESS TEST: Make your highest, squeakiest puppy sound! Hold it for 2 seconds!",
+          options: [
+            { id: "adorable", text: "Absolutely adorable", description: "Hearts melted worldwide" },
+            { id: "trying", text: "Trying too hard", description: "Relax into the squeak" },
+            { id: "scared-cat", text: "Scared a cat", description: "Wrong species!" }
+          ],
+          correctAnswer: "adorable",
+          explanation: "AWWWW! Your puppy squeak was so cute, 17 people just adopted rescue dogs! That's the power of proper yipping!",
+          audioUrl: "/audio/practice/puppy-squeak.mp3",
+          imageUrl: null,
+          order: 2,
+        },
+
+        // LESSON 201: Your First Howl
+        {
+          id: "exercise-201-001",
+          lessonId: "lesson-201",
+          type: "audio",
+          question: "This is a beginner's howl. Notice the slight wobble at 2.3 seconds?",
+          options: [
+            { id: "wobble", text: "I hear the wobble", description: "Advanced ear training" },
+            { id: "smooth", text: "Sounds smooth", description: "Listen closer" },
+            { id: "howl", text: "That's not a howl", description: "It definitely is!" }
+          ],
+          correctAnswer: "wobble",
+          explanation: "Excellent ear! The 2.3-second wobble is called a 'lunar tremolo' - it happens when you think about the moon!",
+          audioUrl: "/audio/barks/beginner-howl.mp3",
+          imageUrl: null,
+          order: 1,
+        },
+        {
+          id: "exercise-201-002",
+          lessonId: "lesson-201",
+          type: "audio",
+          question: "🎤 HOWL CHALLENGE: Give us your longest AWOOOO! Try to reach the moon!",
+          options: [
+            { id: "moon", text: "Reached the moon!", description: "NASA confirmed contact" },
+            { id: "clouds", text: "Hit the clouds", description: "Good altitude!" },
+            { id: "ceiling", text: "Hit the ceiling", description: "Indoor howling fail" }
+          ],
+          correctAnswer: "moon",
+          explanation: "MAGNIFICENT! Your howl was detected by 3 satellites and one confused astronaut! True lunar mastery!",
+          audioUrl: "/audio/practice/moon-howl.mp3",
+          imageUrl: null,
+          order: 2,
+        },
+
+        // LESSON 601: Acting Like a Dog - Body Language
+        {
+          id: "exercise-601-001",
+          lessonId: "lesson-601",
+          type: "multiple-choice",
+          question: "What's the correct tail position for 'cautiously optimistic'?",
+          options: [
+            { id: "45deg", text: "45-degree angle", description: "Mathematical precision" },
+            { id: "straight", text: "Straight up", description: "Too confident!" },
+            { id: "tucked", text: "Tucked under", description: "Too pessimistic!" },
+            { id: "helicopter", text: "Helicopter spin", description: "That's excitement!" }
+          ],
+          correctAnswer: "45deg",
+          explanation: "Perfect! 45 degrees shows you're hopeful but realistic - the perfect angle for modern life!",
+          audioUrl: null,
+          imageUrl: null,
+          order: 1,
+        },
+        {
+          id: "exercise-601-002",
+          lessonId: "lesson-601",
+          type: "audio",
+          question: "🎤 FULL BODY TEST: Do a play bow and bark 3 times! Film yourself!",
+          options: [
+            { id: "perfect", text: "Perfect form!", description: "Could fool actual dogs" },
+            { id: "human", text: "Still too human", description: "Needs more practice" },
+            { id: "yoga", text: "Turned into yoga", description: "Wrong discipline!" }
+          ],
+          correctAnswer: "perfect",
+          explanation: "OUTSTANDING! Your play bow was so authentic, 5 dogs at the park just invited you to their game!",
+          audioUrl: "/audio/practice/play-bow-bark.mp3",
+          imageUrl: null,
+          order: 2,
         }
       ];
 
