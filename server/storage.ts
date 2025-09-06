@@ -20,7 +20,7 @@ import {
   userAchievements
 } from "@shared/schema";
 import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
@@ -266,8 +266,7 @@ export class DatabaseStorage implements IStorage {
     const [progress] = await db
       .select()
       .from(userProgress)
-      .where(eq(userProgress.userId, userId))
-      .where(eq(userProgress.lessonId, lessonId));
+      .where(and(eq(userProgress.userId, userId), eq(userProgress.lessonId, lessonId)));
     return progress;
   }
 
