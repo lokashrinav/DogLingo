@@ -3,6 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
 import DragDropExercise from "@/components/lesson/drag-drop-exercise";
+import AudioExercise from "@/components/lesson/audio-exercise";
+import MultipleChoiceExercise from "@/components/lesson/multiple-choice-exercise";
 import { type Lesson, type Exercise } from "@shared/schema";
 
 export default function Lesson() {
@@ -71,9 +73,19 @@ export default function Lesson() {
         {currentExercise ? (
           <Card className="border border-border">
             <CardContent className="p-6">
-              {currentExercise.type === 'drag-drop' ? (
+              {currentExercise.type === 'drag-drop' && (
                 <DragDropExercise exercise={currentExercise} />
-              ) : (
+              )}
+              
+              {currentExercise.type === 'audio' && (
+                <AudioExercise exercise={currentExercise} />
+              )}
+              
+              {currentExercise.type === 'multiple-choice' && (
+                <MultipleChoiceExercise exercise={currentExercise} />
+              )}
+              
+              {!['drag-drop', 'audio', 'multiple-choice'].includes(currentExercise.type) && (
                 <div className="text-center py-8">
                   <h3 className="text-lg font-semibold mb-4">{currentExercise.question}</h3>
                   <p className="text-muted-foreground">
