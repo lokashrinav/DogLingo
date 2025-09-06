@@ -51,19 +51,19 @@ export default function Progress() {
       <main className="max-w-4xl mx-auto px-4 py-6">
         {/* Overall Stats */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card className="border border-border">
+          <Card className="border border-border polka-dots-card">
             <CardContent className="p-6 text-center">
               <div className="mb-4">
                 <ProgressCircle percentage={progressPercentage} size="small" />
               </div>
               <h3 className="font-semibold" data-testid="overall-progress">Overall Progress</h3>
-              <p className="text-2xl font-bold text-primary">{progressPercentage}%</p>
+              <p className="text-2xl font-bold text-secondary">{progressPercentage}%</p>
             </CardContent>
           </Card>
 
-          <Card className="border border-border">
+          <Card className="border border-border polka-dots-card">
             <CardContent className="p-6 text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-secondary/20 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-4 bg-secondary/20 rounded-full flex items-center justify-center polka-dots-subtle">
                 <i className="fas fa-graduation-cap text-secondary text-2xl"></i>
               </div>
               <h3 className="font-semibold" data-testid="completed-lessons">Completed Lessons</h3>
@@ -71,9 +71,9 @@ export default function Progress() {
             </CardContent>
           </Card>
 
-          <Card className="border border-border">
+          <Card className="border border-border polka-dots-card">
             <CardContent className="p-6 text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-accent/20 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-4 bg-accent/20 rounded-full flex items-center justify-center polka-dots-subtle">
                 <i className="fas fa-star text-accent text-2xl"></i>
               </div>
               <h3 className="font-semibold" data-testid="average-score">Average Score</h3>
@@ -81,9 +81,9 @@ export default function Progress() {
             </CardContent>
           </Card>
 
-          <Card className="border border-border">
+          <Card className="border border-border polka-dots-card">
             <CardContent className="p-6 text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-green-500/20 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-4 bg-green-500/20 rounded-full flex items-center justify-center polka-dots-subtle">
                 <i className="fas fa-fire text-green-600 text-2xl"></i>
               </div>
               <h3 className="font-semibold" data-testid="current-streak">Current Streak</h3>
@@ -93,7 +93,7 @@ export default function Progress() {
         </div>
 
         {/* Lesson Progress Details */}
-        <Card className="border border-border">
+        <Card className="border border-border polka-dots-card">
           <CardContent className="p-6">
             <h2 className="text-xl font-bold mb-4" data-testid="lesson-progress-title">Lesson Progress</h2>
             <div className="space-y-4">
@@ -105,7 +105,7 @@ export default function Progress() {
                 return (
                   <div 
                     key={lesson.id}
-                    className="flex items-center justify-between p-4 bg-muted/50 rounded-lg"
+                    className="flex items-center justify-between p-4 bg-muted/50 rounded-lg polka-dots-card hover:scale-105 transition-all transform"
                     data-testid={`lesson-progress-${lesson.id}`}
                   >
                     <div className="flex items-center space-x-4">
