@@ -82,10 +82,10 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
               <div className="text-center lg:text-left">
                 <h2 className="text-3xl font-bold mb-2" data-testid="welcome-message">
-                  Welcome back, {user?.username || 'Trainer'}!
+                  Welcome back, {user?.username || 'Human'}!
                 </h2>
                 <p className="text-muted-foreground text-lg">
-                  Ready to teach <span className="text-secondary font-semibold">{user?.dogName || 'your dog'}</span> some new tricks?
+                  Ready to learn how to <span className="text-secondary font-semibold">BARK</span> like a real dog?
                 </p>
               </div>
               
@@ -157,8 +157,8 @@ export default function Home() {
         <Card className="border border-border polka-dots-card">
           <CardContent className="p-6">
             <div className="border-b border-border pb-4 mb-6">
-              <h3 className="text-xl font-bold" data-testid="lessons-title">Training Lessons</h3>
-              <p className="text-muted-foreground mt-1">Choose your next lesson to continue learning</p>
+              <h3 className="text-xl font-bold" data-testid="lessons-title">Barking Lessons</h3>
+              <p className="text-muted-foreground mt-1">Choose your next lesson to master dog language</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {lessons?.map((lesson) => {

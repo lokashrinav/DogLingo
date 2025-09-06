@@ -59,9 +59,14 @@ export class DatabaseStorage implements IStorage {
 
   private async seedData() {
     try {
-      // Check if lessons already exist
-      const existingLessons = await db.select().from(lessons);
-      if (existingLessons.length > 0) return;
+      // 🐕 FORCE CLEAR AND RESEED WITH BARKING LESSONS!
+      console.log("🔥 CLEARING ALL DATA FOR BARKING LESSONS TRANSFORMATION!");
+      await db.delete(userAchievements);
+      await db.delete(userProgress);
+      await db.delete(exercises);
+      await db.delete(lessons);
+      await db.delete(achievements);
+      console.log("✅ Database cleared! Now seeding barking lessons...");
 
       // Seed comprehensive lessons library
       const comprehensiveLessons = [
