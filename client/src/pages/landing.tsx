@@ -113,13 +113,19 @@ export default function Landing() {
 
             {/* Right Column - Visual Elements */}
             <div className="relative">
-              {/* Hero Image */}
+              {/* Hero Video */}
               <div className="mb-6">
-                <img 
-                  src="/attached_assets/generated_images/Human_learning_to_bark_0f2430ab.png" 
-                  alt="Person learning to communicate with their dog by practicing barking" 
+                <video 
+                  controls
+                  autoPlay
+                  muted
+                  loop
                   className="w-full rounded-lg border border-border polka-dots-card"
-                />
+                  poster="/attached_assets/generated_images/Human_learning_to_bark_0f2430ab.png"
+                >
+                  <source src="/attached_assets/Human_Learns_To_Bark_Online_1757187438871.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
               
               {/* Feature Preview Cards */}
