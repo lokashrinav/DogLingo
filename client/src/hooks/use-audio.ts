@@ -15,46 +15,69 @@ export function useAudio() {
     // 🎭 COMEDY HACK: ALL BARKS SOUND EXACTLY THE SAME! 
     // But we pretend they're totally different for the joke!
     if (audioUrl.includes('/audio/') || audioUrl.includes('bark') || audioUrl.includes('woof')) {
-      // Generate the EXACT SAME bark sound for everything - that's the joke!
-      if ('AudioContext' in window) {
-        try {
-          const audioContext = new AudioContext();
-          
-          setIsPlaying(true);
+      // Use the EXACT SAME real dog bark for everything - that's the joke!
+      try {
+        // This is a real dog bark sound from a free source - perfect for comedy!
+        const realBarkUrl = 'https://www.soundjay.com/misc/sounds/bark.wav'; // Fallback 1
+        
+        // If that doesn't work, try another free source
+        const backupBarkUrl = 'https://filesamples.com/samples/audio/wav/SampleAudio_0.4mb_wav.wav';
+        
+        // Try a known working free sound
+        const comedyBarkUrl = 'https://www2.cs.uic.edu/~i101/SoundFiles/bark.wav';
 
-          // THE UNIVERSAL BARK - sounds identical no matter what "type" it claims to be
-          const createIdenticalBark = () => {
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            // Always the exact same frequencies and timing - that's the comedy!
-            oscillator.type = 'sawtooth';
-            oscillator.frequency.setValueAtTime(650, 0);
-            oscillator.frequency.exponentialRampToValueAtTime(450, 0.15);
-            
-            gainNode.gain.setValueAtTime(0, 0);
-            gainNode.gain.linearRampToValueAtTime(0.3, 0.01);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, 0.2);
-            
-            oscillator.start(0);
-            oscillator.stop(0.2);
-          };
+        const audio = new Audio(comedyBarkUrl);
+        setCurrentAudio(audio);
+        setIsPlaying(true);
 
-          // Every "different" bark is exactly the same - perfect for comedy!
-          createIdenticalBark();
-
-          setTimeout(() => {
-            setIsPlaying(false);
-            audioContext.close();
-          }, 300);
-          return;
-        } catch (error) {
-          console.warn(`Failed to generate the universal comedy bark`, error);
+        audio.addEventListener('ended', () => {
           setIsPlaying(false);
-        }
+          setCurrentAudio(null);
+        });
+
+        audio.addEventListener('error', () => {
+          // Try backup bark sound
+          console.log("Trying backup bark sound...");
+          const backupAudio = new Audio(realBarkUrl);
+          backupAudio.addEventListener('ended', () => {
+            setIsPlaying(false);
+            setCurrentAudio(null);
+          });
+          
+          backupAudio.addEventListener('error', () => {
+            // Final fallback: speak "woof"
+            setIsPlaying(false);
+            setCurrentAudio(null);
+            if ('speechSynthesis' in window) {
+              const utterance = new SpeechSynthesisUtterance("WOOF!");
+              utterance.rate = 1.5;
+              utterance.pitch = 0.7;
+              window.speechSynthesis.speak(utterance);
+            }
+          });
+
+          backupAudio.play().catch(() => {
+            // Even backup failed, use TTS
+            setIsPlaying(false);
+            setCurrentAudio(null);
+            if ('speechSynthesis' in window) {
+              const utterance = new SpeechSynthesisUtterance("WOOF!");
+              utterance.rate = 1.5;
+              utterance.pitch = 0.7;
+              window.speechSynthesis.speak(utterance);
+            }
+          });
+        });
+
+        audio.play().catch((error) => {
+          console.warn("Real bark failed, trying backup...", error);
+          audio.dispatchEvent(new Event('error'));
+        });
+        
+        return;
+      } catch (error) {
+        console.warn(`Failed to play real bark sound`, error);
+        setIsPlaying(false);
       }
     }
 
