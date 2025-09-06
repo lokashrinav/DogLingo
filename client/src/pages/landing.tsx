@@ -70,10 +70,10 @@ export default function Landing() {
                   DogLingo
                 </h1>
                 <p className="text-xl lg:text-2xl opacity-90 mb-4">
-                  Master dog training commands through interactive lessons, just like learning a new language
+                  Learn to speak dog! Master barking, body language, and training commands through interactive lessons
                 </p>
                 <p className="text-lg opacity-80 mb-8">
-                  Join thousands of dog owners using gamified learning to build stronger bonds with their pets
+                  From "woof" to "sit" - understand your dog's language and teach them yours with gamified learning
                 </p>
               </div>
               
@@ -113,6 +113,15 @@ export default function Landing() {
 
             {/* Right Column - Visual Elements */}
             <div className="relative">
+              {/* Hero Image */}
+              <div className="mb-6">
+                <img 
+                  src="/attached_assets/generated_images/Human_learning_to_bark_0f2430ab.png" 
+                  alt="Person learning to communicate with their dog by practicing barking" 
+                  className="w-full rounded-lg border border-border polka-dots-card"
+                />
+              </div>
+              
               {/* Feature Preview Cards */}
               <div className="space-y-4">
                 <div className="bg-card border border-border rounded-lg p-4 polka-dots-card transform rotate-2">
@@ -120,9 +129,9 @@ export default function Landing() {
                     <div className="w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center polka-dots-subtle">
                       <Target className="text-secondary" size={16} />
                     </div>
-                    <span className="font-semibold">Interactive Lessons</span>
+                    <span className="font-semibold">Bark Translation</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">Drag & drop exercises, audio guides</p>
+                  <p className="text-sm text-muted-foreground">Learn what different barks mean</p>
                 </div>
                 
                 <div className="bg-card border border-border rounded-lg p-4 polka-dots-card transform -rotate-1 ml-8">
@@ -162,7 +171,7 @@ export default function Landing() {
               Why Choose DogLingo?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Our gamified approach makes dog training engaging and effective for both you and your furry friend
+              Learn your dog's language while teaching them yours - from understanding barks to perfecting commands
             </p>
           </div>
 
@@ -263,10 +272,10 @@ export default function Landing() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="text-foreground">
             <h2 className="text-4xl font-bold mb-4" data-testid="cta-title">
-              Ready to Start Your Dog Training Journey?
+              Ready to Learn Your Dog's Language?
             </h2>
             <p className="text-xl opacity-90 mb-8">
-              Join thousands of dog owners who have strengthened their bond through better communication
+              Master barking, understand body language, and become fluent in dog communication
             </p>
             <button 
               onClick={() => window.location.href = '/api/login'}
