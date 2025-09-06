@@ -8,7 +8,7 @@ export default function Landing() {
   return (
     <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-border z-50 polka-dots-subtle">
+      <nav className="fixed top-0 w-full bg-muted/30 backdrop-blur-sm border-b border-border z-50 polka-dots-accent">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
@@ -40,7 +40,7 @@ export default function Landing() {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="md:hidden border-t border-border bg-white/95 backdrop-blur-sm polka-dots-subtle">
+            <div className="md:hidden border-t border-border bg-muted/30 backdrop-blur-sm polka-dots-accent">
               <div className="px-2 pt-2 pb-3 space-y-1">
                 <a href="#features" className="block px-3 py-2 text-foreground hover:text-secondary">Features</a>
                 <a href="#how-it-works" className="block px-3 py-2 text-foreground hover:text-secondary">How It Works</a>
@@ -57,12 +57,12 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-secondary min-h-screen flex items-center pt-16 polka-dots-accent">
+      <section className="bg-muted/30 min-h-screen flex items-center pt-16 polka-dots-accent">
         <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="text-center text-white">
+          <div className="text-center text-foreground">
             <div className="mb-8">
-              <div className="w-24 h-24 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-6 polka-dots-card">
-                <Dog size={48} className="text-white" />
+              <div className="w-24 h-24 mx-auto bg-secondary/20 rounded-full flex items-center justify-center mb-6 polka-dots-card">
+                <Dog size={48} className="text-secondary" />
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold mb-6" data-testid="hero-title">
                 DogLingo
@@ -78,13 +78,13 @@ export default function Landing() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <button 
                 onClick={() => window.location.href = '/api/login'}
-                className="bg-white text-secondary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
+                className="bg-secondary text-secondary-foreground px-8 py-4 rounded-lg font-bold text-lg hover:bg-secondary/90 transition-all transform hover:scale-105"
                 data-testid="login-button"
               >
                 Start Training
               </button>
               <button 
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-all"
+                className="border-2 border-secondary text-secondary px-8 py-4 rounded-lg font-bold text-lg hover:bg-secondary/10 transition-all"
                 onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
                 data-testid="learn-more-button"
               >
@@ -96,7 +96,7 @@ export default function Landing() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-background polka-dots-subtle">
+      <section id="features" className="py-20 bg-muted/30 polka-dots-accent">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4" data-testid="features-title">
@@ -200,9 +200,9 @@ export default function Landing() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-secondary polka-dots-accent">
+      <section className="py-20 bg-muted/30 polka-dots-accent">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="text-white">
+          <div className="text-foreground">
             <h2 className="text-4xl font-bold mb-4" data-testid="cta-title">
               Ready to Start Your Dog Training Journey?
             </h2>
@@ -211,7 +211,7 @@ export default function Landing() {
             </p>
             <button 
               onClick={() => window.location.href = '/api/login'}
-              className="bg-white text-secondary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
+              className="bg-secondary text-secondary-foreground px-8 py-4 rounded-lg font-bold text-lg hover:bg-secondary/90 transition-all transform hover:scale-105"
               data-testid="cta-login-button"
             >
               Get Started for Free
