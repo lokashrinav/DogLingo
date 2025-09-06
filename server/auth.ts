@@ -39,7 +39,7 @@ export function setupAuth(app: Express) {
     saveUninitialized: false,
     store: new PostgresSessionStore({
       conString: process.env.DATABASE_URL,
-      createTableIfMissing: true,
+      createTableIfMissing: false, // Table already exists
       ttl: 7 * 24 * 60 * 60, // 7 days
     }),
     cookie: {
