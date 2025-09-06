@@ -17,13 +17,14 @@ export const sessions = pgTable(
 // User storage table for traditional authentication
 export const users = pgTable("users", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: varchar("username", { length: 50 }).notNull().unique(),
-  email: varchar("email", { length: 100 }).unique(),
-  password: varchar("password", { length: 255 }).notNull(),
-  dogName: varchar("dog_name", { length: 50 }),
+  username: text("username").unique(),
+  email: varchar("email").unique(),
+  password: varchar("password", { length: 255 }),
+  dogName: text("dog_name"),
   totalXp: integer("total_xp").notNull().default(0),
-  currentStreak: integer("current_streak").notNull().default(0),
+  streak: integer("streak").notNull().default(0),
   createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 export const lessons = pgTable("lessons", {

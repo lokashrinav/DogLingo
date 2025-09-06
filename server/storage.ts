@@ -1,7 +1,6 @@
 import { 
   type User, 
   type InsertUser,
-  type UpsertUser,
   type Lesson,
   type InsertLesson,
   type Exercise,
@@ -26,10 +25,10 @@ import { randomUUID } from "crypto";
 export interface IStorage {
   // Users
   getUser(id: string): Promise<User | undefined>;
+  getUserByUsername(username: string): Promise<User | undefined>;
   getUserByEmail(email: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
   updateUser(id: string, updates: Partial<User>): Promise<User | undefined>;
-  upsertUser(user: UpsertUser): Promise<User>;
 
   // Lessons
   getLessons(): Promise<Lesson[]>;
@@ -163,6 +162,12 @@ export class DatabaseStorage implements IStorage {
     return user;
   }
 
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    if (!username) return undefined;
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user;
+  }
+
   async getUserByEmail(email: string): Promise<User | undefined> {
     if (!email) return undefined;
     const [user] = await db.select().from(users).where(eq(users.email, email));
@@ -190,20 +195,6 @@ export class DatabaseStorage implements IStorage {
     return user;
   }
 
-  async upsertUser(userData: UpsertUser): Promise<User> {
-    const [user] = await db
-      .insert(users)
-      .values(userData)
-      .onConflictDoUpdate({
-        target: users.id,
-        set: {
-          ...userData,
-          updatedAt: new Date(),
-        },
-      })
-      .returning();
-    return user;
-  }
 
   // Lesson methods
   async getLessons(): Promise<Lesson[]> {
