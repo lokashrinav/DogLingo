@@ -16,21 +16,23 @@ export default function Achievements() {
   const unlockedIds = new Set(userAchievements?.map(ua => ua.achievementId) || []);
 
   return (
-    <div className="pb-20">
+    <div className="pb-20 min-h-screen bg-muted/30 polka-dots-accent">
       {/* Header */}
-      <header className="bg-card shadow-sm border-b border-border sticky top-0 z-50">
+      <header className="bg-muted/30 backdrop-blur-sm border-b border-border sticky top-0 z-50 polka-dots-accent">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center space-x-4">
             <button 
               onClick={() => window.history.back()}
-              className="p-2 hover:bg-muted rounded-lg transition-colors"
+              className="p-2 hover:bg-secondary/10 rounded-lg transition-all transform hover:scale-105"
               data-testid="back-button"
             >
-              <ArrowLeft size={20} />
+              <ArrowLeft size={20} className="text-secondary" />
             </button>
             <div className="flex items-center space-x-3">
-              <Trophy className="text-secondary" size={24} />
-              <h1 className="text-2xl font-bold" data-testid="achievements-title">Achievements</h1>
+              <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center polka-dots-card">
+                <Trophy className="text-secondary" size={20} />
+              </div>
+              <h1 className="text-2xl font-bold text-secondary" data-testid="achievements-title">Achievements</h1>
             </div>
           </div>
         </div>
@@ -39,7 +41,7 @@ export default function Achievements() {
       <main className="max-w-4xl mx-auto px-4 py-6">
         {/* Unlocked Achievements */}
         {userAchievements && userAchievements.length > 0 && (
-          <Card className="mb-8 border border-border">
+          <Card className="mb-8 border border-border polka-dots-card">
             <CardContent className="p-6">
               <h2 className="text-xl font-bold mb-4" data-testid="unlocked-achievements-title">
                 Unlocked Achievements ({userAchievements.length})
@@ -57,7 +59,7 @@ export default function Achievements() {
         )}
 
         {/* All Achievements */}
-        <Card className="border border-border">
+        <Card className="border border-border polka-dots-card">
           <CardContent className="p-6">
             <h2 className="text-xl font-bold mb-4" data-testid="all-achievements-title">
               All Achievements
@@ -68,9 +70,9 @@ export default function Achievements() {
                 return (
                   <div 
                     key={achievement.id}
-                    className={`p-4 rounded-lg border transition-all ${
+                    className={`p-4 rounded-lg border transition-all polka-dots-card hover:scale-105 transform ${
                       isUnlocked 
-                        ? 'bg-gradient-to-br from-secondary/10 to-secondary/5 border-secondary/20' 
+                        ? 'bg-secondary/10 border-secondary/20' 
                         : 'bg-muted/50 border-muted/20 opacity-60'
                     }`}
                     data-testid={`achievement-${achievement.id}`}

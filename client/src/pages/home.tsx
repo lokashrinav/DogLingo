@@ -45,21 +45,21 @@ export default function Home() {
   }
 
   return (
-    <div className="pb-20">
+    <div className="pb-20 min-h-screen bg-muted/30 polka-dots-accent">
       {/* Header */}
-      <header className="bg-card shadow-sm border-b border-border sticky top-0 z-50">
+      <header className="bg-muted/30 backdrop-blur-sm border-b border-border sticky top-0 z-50 polka-dots-accent">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <Dog className="text-primary-foreground" size={20} />
+              <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center polka-dots-card">
+                <Dog className="text-secondary" size={20} />
               </div>
-              <h1 className="text-2xl font-bold text-primary" data-testid="app-title">DogLingo</h1>
+              <h1 className="text-2xl font-bold text-secondary" data-testid="app-title">DogLingo</h1>
             </div>
             
             <div className="flex items-center space-x-4">
               {/* Streak Counter */}
-              <div className="flex items-center space-x-2 bg-secondary/10 px-3 py-2 rounded-full">
+              <div className="flex items-center space-x-2 bg-secondary/20 px-3 py-2 rounded-full polka-dots-subtle">
                 <Flame className="text-secondary" size={16} />
                 <span className="font-semibold text-secondary" data-testid="streak-counter">
                   {user?.streak || 0}
@@ -67,8 +67,8 @@ export default function Home() {
               </div>
               
               {/* Profile */}
-              <div className="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
-                <User className="text-muted-foreground" size={16} />
+              <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center polka-dots-subtle">
+                <User className="text-accent" size={16} />
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Home() {
 
       <main className="max-w-4xl mx-auto px-4 py-6">
         {/* Progress Overview */}
-        <Card className="mb-8 border border-border">
+        <Card className="mb-8 border border-border polka-dots-card">
           <CardContent className="p-6">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
               <div className="text-center lg:text-left">
@@ -85,7 +85,7 @@ export default function Home() {
                   Welcome back, {user?.username || 'Trainer'}!
                 </h2>
                 <p className="text-muted-foreground text-lg">
-                  Ready to teach <span className="text-primary font-semibold">{user?.dogName || 'your dog'}</span> some new tricks?
+                  Ready to teach <span className="text-secondary font-semibold">{user?.dogName || 'your dog'}</span> some new tricks?
                 </p>
               </div>
               
@@ -96,8 +96,8 @@ export default function Home() {
 
         {/* Current Lesson */}
         {currentLesson && (
-          <Card className="mb-8 border border-border overflow-hidden">
-            <div className="bg-gradient-to-r from-primary to-accent p-6 text-primary-foreground">
+          <Card className="mb-8 border border-border overflow-hidden polka-dots-card">
+            <div className="bg-secondary text-secondary-foreground p-6 polka-dots-subtle">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-bold mb-2" data-testid="current-lesson-title">
@@ -118,7 +118,7 @@ export default function Home() {
             <CardContent className="p-6">
               <div className="flex gap-4">
                 <button 
-                  className="flex-1 bg-primary text-primary-foreground py-3 px-6 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                  className="flex-1 bg-secondary text-secondary-foreground py-3 px-6 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105"
                   data-testid="continue-lesson-button"
                   onClick={() => window.location.href = `/lesson/${currentLesson.id}`}
                 >
@@ -131,11 +131,13 @@ export default function Home() {
 
         {/* Recent Achievements */}
         {userAchievements && userAchievements.length > 0 && (
-          <Card className="mb-8 border border-border">
+          <Card className="mb-8 border border-border polka-dots-card">
             <CardContent className="p-6">
               <div className="border-b border-border pb-4 mb-6">
                 <h3 className="text-xl font-bold flex items-center gap-2" data-testid="achievements-title">
-                  <i className="fas fa-trophy text-secondary"></i>
+                  <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center polka-dots-subtle">
+                    <i className="fas fa-trophy text-accent"></i>
+                  </div>
                   Recent Achievements
                 </h3>
               </div>
@@ -152,7 +154,7 @@ export default function Home() {
         )}
 
         {/* Lesson Library */}
-        <Card className="border border-border">
+        <Card className="border border-border polka-dots-card">
           <CardContent className="p-6">
             <div className="border-b border-border pb-4 mb-6">
               <h3 className="text-xl font-bold" data-testid="lessons-title">Training Lessons</h3>

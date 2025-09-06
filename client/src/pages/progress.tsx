@@ -26,21 +26,23 @@ export default function Progress() {
     Math.round(progress.reduce((sum, p) => sum + p.score, 0) / progress.length) : 0;
 
   return (
-    <div className="pb-20">
+    <div className="pb-20 min-h-screen bg-muted/30 polka-dots-accent">
       {/* Header */}
-      <header className="bg-card shadow-sm border-b border-border sticky top-0 z-50">
+      <header className="bg-muted/30 backdrop-blur-sm border-b border-border sticky top-0 z-50 polka-dots-accent">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center space-x-4">
             <button 
               onClick={() => window.history.back()}
-              className="p-2 hover:bg-muted rounded-lg transition-colors"
+              className="p-2 hover:bg-secondary/10 rounded-lg transition-all transform hover:scale-105"
               data-testid="back-button"
             >
-              <ArrowLeft size={20} />
+              <ArrowLeft size={20} className="text-secondary" />
             </button>
             <div className="flex items-center space-x-3">
-              <BarChart3 className="text-primary" size={24} />
-              <h1 className="text-2xl font-bold" data-testid="progress-title">Your Progress</h1>
+              <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center polka-dots-card">
+                <BarChart3 className="text-secondary" size={20} />
+              </div>
+              <h1 className="text-2xl font-bold text-secondary" data-testid="progress-title">Your Progress</h1>
             </div>
           </div>
         </div>

@@ -18,11 +18,11 @@ export default function AchievementCard({ userAchievement }: AchievementCardProp
 
   return (
     <div 
-      className="bg-card p-4 rounded-lg border border-secondary/20 bounce-in"
+      className="bg-card p-4 rounded-lg border border-secondary/20 bounce-in polka-dots-card hover:scale-105 transition-all transform"
       data-testid={`achievement-card-${achievement.id}`}
     >
       <div className="text-center">
-        <div className="w-16 h-16 mx-auto mb-3 bg-secondary/20 rounded-full flex items-center justify-center">
+        <div className="w-16 h-16 mx-auto mb-3 bg-secondary/20 rounded-full flex items-center justify-center polka-dots-subtle">
           <i className={`${achievement.icon} text-2xl text-secondary`}></i>
         </div>
         <h4 className="font-semibold mb-1" data-testid="achievement-title">

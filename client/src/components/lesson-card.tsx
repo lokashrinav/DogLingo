@@ -57,12 +57,12 @@ export default function LessonCard({ lesson, progress }: LessonCardProps) {
 
   return (
     <div 
-      className={`lesson-card bg-card ${statusInfo.cardClass} p-4 rounded-lg border cursor-pointer ${statusInfo.opacity}`}
+      className={`lesson-card bg-card ${statusInfo.cardClass} p-4 rounded-lg border cursor-pointer ${statusInfo.opacity} polka-dots-card hover:scale-105 transition-all transform`}
       onClick={handleClick}
       data-testid={`lesson-card-${lesson.id}`}
     >
       <div className="flex items-start justify-between mb-3">
-        <div className={`w-12 h-12 ${statusInfo.iconClass} rounded-full flex items-center justify-center`}>
+        <div className={`w-12 h-12 ${statusInfo.iconClass} rounded-full flex items-center justify-center polka-dots-subtle`}>
           {isLocked ? (
             <i className="fas fa-lock"></i>
           ) : (

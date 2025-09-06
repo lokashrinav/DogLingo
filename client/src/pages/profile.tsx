@@ -9,21 +9,23 @@ export default function Profile() {
   });
 
   return (
-    <div className="pb-20">
+    <div className="pb-20 min-h-screen bg-muted/30 polka-dots-accent">
       {/* Header */}
-      <header className="bg-card shadow-sm border-b border-border sticky top-0 z-50">
+      <header className="bg-muted/30 backdrop-blur-sm border-b border-border sticky top-0 z-50 polka-dots-accent">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center space-x-4">
             <button 
               onClick={() => window.history.back()}
-              className="p-2 hover:bg-muted rounded-lg transition-colors"
+              className="p-2 hover:bg-secondary/10 rounded-lg transition-all transform hover:scale-105"
               data-testid="back-button"
             >
-              <ArrowLeft size={20} />
+              <ArrowLeft size={20} className="text-secondary" />
             </button>
             <div className="flex items-center space-x-3">
-              <User className="text-primary" size={24} />
-              <h1 className="text-2xl font-bold" data-testid="profile-title">Profile</h1>
+              <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center polka-dots-card">
+                <User className="text-secondary" size={20} />
+              </div>
+              <h1 className="text-2xl font-bold text-secondary" data-testid="profile-title">Profile</h1>
             </div>
           </div>
         </div>
@@ -31,16 +33,16 @@ export default function Profile() {
 
       <main className="max-w-4xl mx-auto px-4 py-6">
         {/* Profile Info */}
-        <Card className="mb-8 border border-border">
+        <Card className="mb-8 border border-border polka-dots-card">
           <CardContent className="p-6">
             <div className="flex items-center space-x-6 mb-6">
-              <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center">
-                <User className="text-primary" size={32} />
+              <div className="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center polka-dots-subtle">
+                <User className="text-secondary" size={32} />
               </div>
               <div>
                 <h2 className="text-2xl font-bold" data-testid="username">{user?.username}</h2>
                 <p className="text-muted-foreground" data-testid="user-email">{user?.email}</p>
-                <p className="text-primary font-semibold" data-testid="dog-name">
+                <p className="text-secondary font-semibold" data-testid="dog-name">
                   Training {user?.dogName}
                 </p>
               </div>
