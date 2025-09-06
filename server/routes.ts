@@ -1,41 +1,25 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { setupAuth, isAuthenticated } from "./replitAuth";
+import { setupAuth } from "./auth";
 import { insertUserProgressSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Auth middleware
-  await setupAuth(app);
+  setupAuth(app);
 
-  // Auth routes
-  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
-    try {
-      const userId = req.user.claims.sub;
-      const user = await storage.getUser(userId);
-      res.json(user);
-    } catch (error) {
-      console.error("Error fetching user:", error);
-      res.status(500).json({ message: "Failed to fetch user" });
-    }
-  });
+  // Auth routes are now handled in auth.ts
 
-  // Get current user (backwards compatibility)
-  app.get("/api/user", isAuthenticated, async (req: any, res) => {
-    try {
-      const userId = req.user.claims.sub;
-      const user = await storage.getUser(userId);
-      if (!user) {
-        return res.status(404).json({ message: "User not found" });
-      }
-      res.json(user);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch user" });
+  // Middleware to check authentication
+  const requireAuth = (req: any, res: any, next: any) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ message: "Unauthorized" });
     }
-  });
+    next();
+  };
 
   // Update user streak and XP
-  app.patch("/api/user/:id", async (req, res) => {
+  app.patch("/api/user/:id", requireAuth, async (req, res) => {
     try {
       const { id } = req.params;
       const updates = req.body;
@@ -86,7 +70,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Get user progress
-  app.get("/api/user/:userId/progress", async (req, res) => {
+  app.get("/api/user/:userId/progress", requireAuth, async (req, res) => {
     try {
       const { userId } = req.params;
       const progress = await storage.getUserProgress(userId);
@@ -97,7 +81,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Update lesson progress
-  app.post("/api/user/:userId/progress", async (req, res) => {
+  app.post("/api/user/:userId/progress", requireAuth, async (req, res) => {
     try {
       const { userId } = req.params;
       const progressData = insertUserProgressSchema.parse(req.body);
@@ -124,7 +108,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Get user achievements
-  app.get("/api/user/:userId/achievements", async (req, res) => {
+  app.get("/api/user/:userId/achievements", requireAuth, async (req, res) => {
     try {
       const { userId } = req.params;
       const userAchievements = await storage.getUserAchievements(userId);
@@ -145,7 +129,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Unlock achievement
-  app.post("/api/user/:userId/achievements", async (req, res) => {
+  app.post("/api/user/:userId/achievements", requireAuth, async (req, res) => {
     try {
       const { userId } = req.params;
       const { achievementId } = req.body;
