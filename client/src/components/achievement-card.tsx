@@ -18,7 +18,7 @@ export default function AchievementCard({ userAchievement }: AchievementCardProp
 
   return (
     <div 
-      className="bg-gradient-to-br from-secondary/10 to-secondary/5 p-4 rounded-lg border border-secondary/20 bounce-in"
+      className="bg-card p-4 rounded-lg border border-secondary/20 bounce-in"
       data-testid={`achievement-card-${achievement.id}`}
     >
       <div className="text-center">

@@ -15,7 +15,7 @@ export default function LessonCard({ lesson, progress }: LessonCardProps) {
       return {
         label: "Completed",
         className: "bg-green-100 text-green-700",
-        cardClass: "from-primary/5 to-primary/10 border-primary/20",
+        cardClass: "border-primary/20",
         iconClass: "bg-primary/20 text-primary",
         opacity: ""
       };
@@ -24,7 +24,7 @@ export default function LessonCard({ lesson, progress }: LessonCardProps) {
       return {
         label: "In Progress",
         className: "bg-blue-100 text-blue-700",
-        cardClass: "from-secondary/5 to-secondary/10 border-secondary/20",
+        cardClass: "border-secondary/20",
         iconClass: "bg-secondary/20 text-secondary",
         opacity: ""
       };
@@ -33,7 +33,7 @@ export default function LessonCard({ lesson, progress }: LessonCardProps) {
       return {
         label: "Locked",
         className: "bg-gray-100 text-gray-600",
-        cardClass: "from-muted/5 to-muted/10 border-muted/20",
+        cardClass: "border-muted/20",
         iconClass: "bg-muted/20 text-muted-foreground",
         opacity: "opacity-75"
       };
@@ -41,7 +41,7 @@ export default function LessonCard({ lesson, progress }: LessonCardProps) {
     return {
       label: "Available",
       className: "bg-blue-100 text-blue-700",
-      cardClass: "from-accent/5 to-accent/10 border-accent/20",
+      cardClass: "border-accent/20",
       iconClass: "bg-accent/20 text-accent",
       opacity: ""
     };
@@ -57,7 +57,7 @@ export default function LessonCard({ lesson, progress }: LessonCardProps) {
 
   return (
     <div 
-      className={`lesson-card bg-gradient-to-br ${statusInfo.cardClass} p-4 rounded-lg border cursor-pointer ${statusInfo.opacity}`}
+      className={`lesson-card bg-card ${statusInfo.cardClass} p-4 rounded-lg border cursor-pointer ${statusInfo.opacity}`}
       onClick={handleClick}
       data-testid={`lesson-card-${lesson.id}`}
     >

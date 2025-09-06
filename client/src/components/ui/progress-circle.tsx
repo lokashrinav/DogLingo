@@ -26,7 +26,7 @@ export default function ProgressCircle({ percentage, size = "normal" }: Progress
           cx="50" 
           cy="50" 
           r={radius} 
-          stroke="url(#gradient)" 
+          stroke="hsl(var(--primary))" 
           strokeWidth="8" 
           fill="none"
           strokeDasharray={circumference}
@@ -38,12 +38,6 @@ export default function ProgressCircle({ percentage, size = "normal" }: Progress
             transformOrigin: "50% 50%"
           }}
         />
-        <defs>
-          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(var(--primary))" />
-            <stop offset="100%" stopColor="hsl(var(--accent))" />
-          </linearGradient>
-        </defs>
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center">

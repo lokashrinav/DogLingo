@@ -5,7 +5,7 @@ export default function Landing() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary to-accent min-h-screen flex items-center">
+      <section className="bg-primary min-h-screen flex items-center">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="text-center text-white">
             <div className="mb-8">
@@ -145,7 +145,7 @@ export default function Landing() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-primary to-accent">
+      <section className="py-20 bg-primary">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="text-white">
             <h2 className="text-4xl font-bold mb-4" data-testid="cta-title">
