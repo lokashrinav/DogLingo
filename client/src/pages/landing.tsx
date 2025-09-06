@@ -12,17 +12,17 @@ export default function Landing() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
-              <Dog className="text-primary" size={28} />
-              <span className="text-xl font-bold text-primary">DogLingo</span>
+              <Dog className="text-secondary" size={28} />
+              <span className="text-xl font-bold text-secondary">DogLingo</span>
             </div>
             
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-foreground hover:text-primary transition-colors">Features</a>
-              <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">How It Works</a>
+              <a href="#features" className="text-foreground hover:text-secondary transition-colors">Features</a>
+              <a href="#how-it-works" className="text-foreground hover:text-secondary transition-colors">How It Works</a>
               <button 
                 onClick={() => window.location.href = '/api/login'}
-                className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                className="bg-secondary text-secondary-foreground px-6 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
                 data-testid="nav-login-button"
               >
                 Start Training
@@ -42,11 +42,11 @@ export default function Landing() {
           {isMenuOpen && (
             <div className="md:hidden border-t border-border bg-white/95 backdrop-blur-sm polka-dots-subtle">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <a href="#features" className="block px-3 py-2 text-foreground hover:text-primary">Features</a>
-                <a href="#how-it-works" className="block px-3 py-2 text-foreground hover:text-primary">How It Works</a>
+                <a href="#features" className="block px-3 py-2 text-foreground hover:text-secondary">Features</a>
+                <a href="#how-it-works" className="block px-3 py-2 text-foreground hover:text-secondary">How It Works</a>
                 <button 
                   onClick={() => window.location.href = '/api/login'}
-                  className="w-full text-left px-3 py-2 bg-primary text-primary-foreground rounded-lg font-medium"
+                  className="w-full text-left px-3 py-2 bg-secondary text-secondary-foreground rounded-lg font-medium"
                 >
                   Start Training
                 </button>
@@ -57,7 +57,7 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-primary min-h-screen flex items-center pt-16 polka-dots-accent">
+      <section className="bg-secondary min-h-screen flex items-center pt-16 polka-dots-accent">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="text-center text-white">
             <div className="mb-8">
@@ -78,7 +78,7 @@ export default function Landing() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <button 
                 onClick={() => window.location.href = '/api/login'}
-                className="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
+                className="bg-white text-secondary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
                 data-testid="login-button"
               >
                 Start Training
@@ -110,8 +110,8 @@ export default function Landing() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="border border-border hover:shadow-lg transition-shadow polka-dots-card">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center mb-6 polka-dots-subtle">
-                  <Target className="text-primary" size={32} />
+                <div className="w-16 h-16 mx-auto bg-secondary/20 rounded-full flex items-center justify-center mb-6 polka-dots-subtle">
+                  <Target className="text-secondary" size={32} />
                 </div>
                 <h3 className="text-xl font-bold mb-4" data-testid="feature-interactive">
                   Interactive Lessons
@@ -167,8 +167,8 @@ export default function Landing() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto bg-primary rounded-full flex items-center justify-center mb-6 polka-dots-card">
-                <span className="text-3xl font-bold text-primary-foreground">1</span>
+              <div className="w-20 h-20 mx-auto bg-secondary rounded-full flex items-center justify-center mb-6 polka-dots-card">
+                <span className="text-3xl font-bold text-secondary-foreground">1</span>
               </div>
               <h3 className="text-xl font-bold mb-4">Choose Your Level</h3>
               <p className="text-muted-foreground">
@@ -200,7 +200,7 @@ export default function Landing() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-primary polka-dots-accent">
+      <section className="py-20 bg-secondary polka-dots-accent">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="text-white">
             <h2 className="text-4xl font-bold mb-4" data-testid="cta-title">
@@ -211,7 +211,7 @@ export default function Landing() {
             </p>
             <button 
               onClick={() => window.location.href = '/api/login'}
-              className="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
+              className="bg-white text-secondary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
               data-testid="cta-login-button"
             >
               Get Started for Free
