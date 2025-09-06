@@ -8,6 +8,7 @@ import AuthPage from "@/pages/auth-page";
 import Home from "@/pages/home";
 import Landing from "@/pages/landing";
 import Lesson from "@/pages/lesson";
+import Lessons from "@/pages/lessons";
 import Achievements from "@/pages/achievements";
 import Progress from "@/pages/progress";
 import Profile from "@/pages/profile";
@@ -35,6 +36,7 @@ function Router() {
       ) : (
         <>
           <Route path="/" component={Home} />
+          <Route path="/lessons" component={Lessons} />
           <Route path="/lesson/:id" component={Lesson} />
           <Route path="/achievements" component={Achievements} />
           <Route path="/progress" component={Progress} />
